@@ -3,5 +3,17 @@
 {% block title %}ChirpNet{% endblock %}
 
 {% block content %}
-<h1 class="text-center mt-4">Welcome to ChirpNet</h1>
+
+
+<h1 class="text-center mt-4">Are you sure that you want to delete the chiro ?</h1>
+
+<form method="post">
+
+    {% csrf_token %}
+    <button class="btn btn-danger">Delete</button>
+
+    <a href="{% url 'chirpnet_list' %}" class="btn btn-success">Cancel</a>
+</form>
+
+
 {% endblock %}

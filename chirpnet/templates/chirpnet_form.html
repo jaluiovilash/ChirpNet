@@ -1,0 +1,30 @@
+{% extends "layout.html" %}
+
+{% block title %}
+ChirpNet
+{% endblock %}
+
+
+{% block content %}
+<h1 class="text-center mt-4">Welcome to ChirpNet</h1>
+
+<h2>{% if form.instance.pk %}
+    Edit Chirp
+    {% else %}
+    Create Chirp
+    {% endif %}
+</h2>
+
+<form method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    {{ form.as_p }}
+
+    <button type="submit" class="btn btn-warning">Create</button>
+</form>
+
+<a href="{% url 'chirpnet_list' %}" class="text-center m-2">Back to home page</a>
+
+
+
+
+{% endblock %}

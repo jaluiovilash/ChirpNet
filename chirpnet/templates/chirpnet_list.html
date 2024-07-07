@@ -8,7 +8,7 @@ ChirpNet
 
 <h1 class="text-center mt-4">Welcome to ChirpNet</h1>
 
-<a class="btn btn-primary" href="{% url 'chirpnet_create' %}">Create a chirp</a>
+<a class="btn btn-primary mb-4" href="{% url 'chirpnet_create' %}">Create chirp</a>
 
 <div class="container row gap-3">
     {% for chirpnet in chirps %}
@@ -22,5 +22,8 @@ ChirpNet
         </div>
     </div>
     {% endfor %}
+
 </div>
+
+
 {% endblock %}

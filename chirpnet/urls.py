@@ -19,8 +19,8 @@ from django.urls import path
 from . import views
 
 urlpatterns = [
-    path('',views.chirpnet_list,name='chirpnet_list'),
-    path('create/',views.chirpnet_create,name='chirpnet_create'),
-    path('edit/<int:id>/',views.chirpnet_edit,name='chirpnet_edit'),
-    path('delete/<int:id>/',views.chirpnet_delete,name='chirpnet_delete'),
+    path('',views.chirpnet_list,name='chirpnet_list'),  #home page
+    path('create/',views.chirpnet_create,name='chirpnet_create'), #form to post
+    path('<int:chirpnet_id>/edit/',views.chirpnet_edit,name='chirpnet_edit'),
+    path('<int:chirpnet_id>/delete/',views.chirpnet_delete,name='chirpnet_delete'),
 ]
