@@ -1,0 +1,37 @@
+{% extends "layout.html" %}
+
+{% load static %}
+
+{% block title %}
+ChirpNet
+{% endblock %}
+
+{% block content %}
+
+<h1 class="text-center mt-4">Welcome to ChirpNet</h1>
+
+<a class="btn btn-primary mb-4" href="{% url 'chirpnet_create' %}">Create chirp</a>
+
+<div class="container row gap-3">
+    {% for chirpnet in chirps %}
+    <div class="card" style="width: 18rem;">
+        {% if chirpnet.photo %}
+        <img src="{{ chirpnet.photo.url }}" class="card-img-top" alt="">
+        {% else %}
+        <img src="{% static 'default_photo.jpg' %}" class="card-img-top" alt="">
+        {% endif %}
+
+        <div class="card-body">
+            <h5 class="card-title">{{ chirpnet.user.username }}</h5>
+            <p class="card-text">{{ chirpnet.text }}</p>
+
+            {% if chirpnet.user == user %}
+            <a href="{% url 'chirpnet_form' chirpnet.id %}" class="btn btn-primary">Edit</a>
+            <a href="{% url 'chirpnet_delete' chirpnet.id %}" class="btn btn-danger">Delete</a>
+            {% endif %}
+        </div>
+    </div>
+    {% endfor %}
+</div>
+
+{% endblock %}
